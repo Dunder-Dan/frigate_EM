@@ -530,8 +530,8 @@ class OnvifController:
             zoom,
             [0, 1],
             [
-                self.cams[camera_name]["absolute_zoom_range"]["XRange"]["Min"],
-                self.cams[camera_name]["absolute_zoom_range"]["XRange"]["Max"],
+                self.cams[camera_name]["zoom_limits"]["Range"]["XRange"]["Min"],
+                self.cams[camera_name]["zoom_limits"]["Range"]["XRange"]["Max"],
             ],
         )
 
@@ -690,8 +690,8 @@ class OnvifController:
             self.ptz_metrics[camera_name].zoom_level.value = numpy.interp(
                 round(status.Position.Zoom.x, 2),
                 [
-                    self.cams[camera_name]["absolute_zoom_range"]["XRange"]["Min"],
-                    self.cams[camera_name]["absolute_zoom_range"]["XRange"]["Max"],
+                    self.cams[camera_name]["zoom_limits"]["Range"]["XRange"]["Min"],
+                    self.cams[camera_name]["zoom_limits"]["Range"]["XRange"]["Max"],
                 ],
                 [0, 1],
             )
