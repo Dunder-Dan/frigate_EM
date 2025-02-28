@@ -270,7 +270,7 @@ class PtzAutoTracker:
                 self.ptz_metrics[camera].autotracker_enabled.value = False
                 return
 
-            move_status_supported = self.onvif.get_service_capabilities(camera)
+            movestatus_supported = "true" # self.onvif.get_service_capabilities(camera)
 
             if move_status_supported is None or move_status_supported.lower() != "true":
                 logger.warning(
